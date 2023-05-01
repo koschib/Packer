@@ -9,9 +9,9 @@ sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(l
 sudo apt-get update && sudo apt-get install terraform -y
 
 # Install ArgoCD CLI
-echo "Installing ArgoCD CLI"
-sudo curl -sSL -o argocd-darwin-amd64 https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-darwin-amd64 /usr/local/bin/argocd
-sudo chmod +x /usr/local/bin/argocd
+#echo "Installing ArgoCD CLI"
+#sudo curl -sSL -o argocd-darwin-amd64 https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-darwin-amd64 /usr/local/bin/argocd
+#sudo chmod +x /usr/local/bin/argocd
 
 
 # Install Kubectl
