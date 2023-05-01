@@ -1,98 +1,63 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Packer" />
+# Azure Control-VM Image with Hashicorp Packer
 
-  &#xa0;
-
-  <!-- <a href="https://packer.netlify.app">Demo</a> -->
-</div>
-
-<h1 align="center">Packer</h1>
-
-<p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/packer?color=56BEB8">
-
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/packer?color=56BEB8">
-
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/packer?color=56BEB8">
-
-  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/packer?color=56BEB8">
-
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/packer?color=56BEB8" /> -->
-
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/packer?color=56BEB8" /> -->
-
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/packer?color=56BEB8" /> -->
-</p>
-
-<!-- Status -->
-
-<!-- <h4 align="center"> 
-	🚧  Packer 🚀 Under construction...  🚧
-</h4> 
-
-<hr> -->
-
-<p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
-</p>
-
-<br>
-
-## :dart: About ##
-
-Describe your project
-
-## :sparkles: Features ##
-
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
-
-## :rocket: Technologies ##
-
-The following tools were used in this project:
-
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-
-## :white_check_mark: Requirements ##
-
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
-
-## :checkered_flag: Starting ##
-
-```bash
-# Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/packer
-
-# Access
-$ cd packer
-
-# Install dependencies
-$ yarn
-
-# Run the project
-$ yarn start
-
-# The server will initialize in the <http://localhost:3000>
-```
-
-## :memo: License ##
-
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+To deploy a Control VM in Azure, we need a Linux image with appropriate devTools.
+This image is generated with Hashicorp Packer and deployed in the appropriate resource group.
 
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
 
-&#xa0;
+To create the image, Hashircorp packer must be installed.
 
-<a href="#top">Back to top</a>
+automatic:
+
+Mac:
+
+`brew tap hashicorp/tap`
+
+`brew install hashicorp/tap/packer`
+
+`brew upgrade hashicorp/tap/packer`
+
+Linux:
+
+`curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -`
+
+`sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"`
+
+`sudo apt-get update && sudo apt-get install packer`
+
+
+**Required variables**
+
+Get your Azure subscription_id:
+
+`az account show --query "{ subscription_id: id }"`
+
+To create a "Contributor" role assignment:
+
+`az ad sp create-for-rbac --role Contributor --scopes /subscriptions/<the subscribtion_id> --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+`
+
+________________________
+
+
+Set these environment variables:
+
+client_id = ARM_CLIENT_ID
+
+client_secret = ARM_CLIENT_SECRET
+
+tenant_id = ARM_TENANT_ID
+
+subscription_id = ARM_SUBSCRIPTION_ID
+
+Example:
+
+`export ARM_CLIENT_ID=<the client Id > `
+
+
+
+
+
+
+
+
