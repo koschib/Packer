@@ -1,7 +1,3 @@
-
-
-
-
 variable "client_id" {
   description = "The client ID of the application"
   type        = string

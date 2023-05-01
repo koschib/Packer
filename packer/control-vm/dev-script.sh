@@ -1,4 +1,5 @@
 ## Shell Script to install terraform cli, argocd cli, kubectl
+apt-get install dialog apt-utils -y ## To avoid debconf: unable to initialize frontend: Dialog
 
 # Install Terraform
 echo "Installing Terraform"
@@ -34,32 +35,32 @@ echo "Installing Gitlab Runner"
 sudo curl -sSL https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
 sudo apt-get install gitlab-runner -y
 
-# Install jq
-echo "Installing jq"
-sudo apt-get install jq -y
+# # Install jq
+# echo "Installing jq"
+# sudo apt-get install jq -y
 
-# Install k9s
-echo "Installing k9s"
-sudo curl -sSL -o /usr/local/bin/k9s
-sudo chmod +x /usr/local/bin/k9s
+# # Install k9s
+# echo "Installing k9s"
+# sudo curl -sSL -o /usr/local/bin/k9s
+# sudo chmod +x /usr/local/bin/k9s
 
-# Install kubectx
-echo "Installing kubectx"
-sudo curl -sSL -o /usr/local/bin/kubectx
-sudo chmod +x /usr/local/bin/kubectx
+# # Install kubectx
+# echo "Installing kubectx"
+# sudo curl -sSL -o /usr/local/bin/kubectx
+# sudo chmod +x /usr/local/bin/kubectx
 
-# Install kubens
-echo "Installing kubens"
-sudo curl -sSL -o /usr/local/bin/kubens
-sudo chmod +x /usr/local/bin/kubens
+# # Install kubens
+# echo "Installing kubens"
+# sudo curl -sSL -o /usr/local/bin/kubens
+# sudo chmod +x /usr/local/bin/kubens
 
-# Install kubeseal
-echo "Installing kubeseal"
-sudo curl -sSL -o /usr/local/bin/kubeseal
-sudo chmod +x /usr/local/bin/kubeseal
+# # Install kubeseal
+# echo "Installing kubeseal"
+# sudo curl -sSL -o /usr/local/bin/kubeseal
+# sudo chmod +x /usr/local/bin/kubeseal
 
-# Install trivy
-echo "Installing trivy"
-sudo curl -sSL -o /usr/local/bin/trivy
-sudo chmod +x /usr/local/bin/trivy
+# # Install trivy
+# echo "Installing trivy"
+# sudo curl -sSL -o /usr/local/bin/trivy
+# sudo chmod +x /usr/local/bin/trivy
 

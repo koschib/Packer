@@ -10,7 +10,7 @@ source "azure-arm" "control-vm" {
   image_sku                         = "18.04-LTS"
   location                          = "East US"
   managed_image_name                = "myPackerImage"
-  managed_image_resource_group_name = "myResourceGroup"
+  managed_image_resource_group_name = "packer-rg"
   os_type                           = "Linux"
   subscription_id                   = "${var.subscription_id}"
   tenant_id                         = "${var.tenant_id}"
