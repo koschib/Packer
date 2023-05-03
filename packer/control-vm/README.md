@@ -54,6 +54,10 @@ Example:
 
 `export ARM_CLIENT_ID=<the client Id > `
 
+To build an image with var file use:
+
+ `packer build -var-file="variables.pkrvars.hcl" .  `
+
 
 
 
