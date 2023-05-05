@@ -22,15 +22,12 @@ build {
 
   provisioner "shell" {
 
-    scripts = [
-      "./dev-script.sh",
-      "./argo.sh",
-      
-    ]
+    
+    ## script to run on the VM dontrol-vm/scripts/dev-0.sh
+    script = "./dev-o.sh"
+
   }
 
   
 
 }
-
-
