@@ -9,7 +9,7 @@ source "azure-arm" "control-vm" {
   image_publisher                   = "Canonical"
   image_sku                         = "18.04-LTS"
   location                          = "East US"
-  managed_image_name                = "lin-test1"
+  managed_image_name                = "lin-test-pv"
   managed_image_resource_group_name = "packer-rg"
   os_type                           = "Linux"
   subscription_id                   = "${var.subscription_id}"
@@ -22,12 +22,12 @@ build {
 
   provisioner "shell" {
 
-    
-    ## script to run on the VM dontrol-vm/scripts/dev-0.sh
+
+   
     script = "./dev-o.sh"
 
   }
 
-  
+
 
 }
