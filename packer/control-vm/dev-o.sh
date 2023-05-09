@@ -3,7 +3,6 @@
 ## debconf: unable to initialize frontend: Dialog
 echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
-
 # Terraform Installation ok
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl unzip
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
@@ -40,12 +39,16 @@ sudo dpkg -i gitlab-runner_amd64.deb
 # jq cli Installation ok
 sudo apt-get update && sudo apt-get install -y jq
 
-# k9s Installation test
-sudo apt-get update && sudo apt-get install -y derailed/k9s/k9s
+# k9s Installation not working
+curl -sS https://webinstall.dev/k9s | bash
+source ~/.config/envman/PATH.env
 
-# kubens and kubeseal Installation
-sudo apt-get update && sudo apt-get install -y kubectx
+# kubens and kubeseal Installation test
+curl -sS https://webi.sh/kubens | sh
 
-# trivy Installation
-wget https://github.com/aquasecurity/trivy/releases/download/v0.19.2/trivy_0.19.2_Linux-64bit.deb
-sudo dpkg -i trivy_0.19.2_Linux-64bit.deb
+# trivy Installation ok
+sudo apt-get install wget apt-transport-https gnupg lsb-release
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+sudo apt-get update
+sudo apt-get install trivy

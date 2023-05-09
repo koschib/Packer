@@ -3,19 +3,19 @@ source "azure-arm" "control-vm" {
     dept = "dev"
     task = "control-vm"
   }
-  client_id                         = "${var.client_id}"
-  client_secret                     = "${var.client_secret}"
+
   image_offer                       = "UbuntuServer"
   image_publisher                   = "Canonical"
   image_sku                         = "18.04-LTS"
   location                          = "East US"
-  managed_image_name                = "lin-test-pv"
+  managed_image_name                = "linux1"
   managed_image_resource_group_name = "packer-rg"
   os_type                           = "Linux"
-  subscription_id                   = "${var.subscription_id}"
-  tenant_id                         = "${var.tenant_id}"
   vm_size                           = "Standard_DS2_v2"
+  use_azure_cli_auth                = true
 }
+
+
 
 build {
   sources = ["source.azure-arm.control-vm"]
@@ -23,7 +23,7 @@ build {
   provisioner "shell" {
 
 
-   
+
     script = "./dev-o.sh"
 
   }
