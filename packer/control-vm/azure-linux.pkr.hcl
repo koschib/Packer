@@ -4,12 +4,12 @@ source "azure-arm" "control-vm" {
     task = "control-vm"
   }
 
-  image_offer                       = "UbuntuServer"
+  image_offer                       = "0001-com-ubuntu-server-jammy"
   image_publisher                   = "Canonical"
-  image_sku                         = "18.04-LTS"
-  location                          = "East US"
-  managed_image_name                = "linux1"
-  managed_image_resource_group_name = "packer-rg"
+  image_sku                         = "22_04-lts-gen2"
+  location                          = "westeurope"
+  managed_image_name                = "dlwe-mat-im-packer-dev-02"
+  managed_image_resource_group_name = "rg-packer"
   os_type                           = "Linux"
   vm_size                           = "Standard_DS2_v2"
   use_azure_cli_auth                = true
@@ -27,7 +27,5 @@ build {
     script = "./dev-o.sh"
 
   }
-
-
 
 }
